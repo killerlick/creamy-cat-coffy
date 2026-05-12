@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b7ogrnywa7egl"]
+
+[ext_resource type="Script" path="res://assets/ressources/liquid/liquid.gd" id="1_xo3ua"]
+
+[resource]
+script = ExtResource("1_xo3ua")
+type = 2
+element_type = 0
+element_name = ""
+element_sprite = Array[Texture2D]([])
+element_cost = 0

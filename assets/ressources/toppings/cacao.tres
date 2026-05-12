@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://406s5l8ri471"]
+
+[ext_resource type="Script" path="res://assets/ressources/toppings/topping.gd" id="1_el2te"]
+
+[resource]
+script = ExtResource("1_el2te")
+type = 0
+element_type = 0
+element_name = "Cacao"
+element_sprite = Array[Texture2D]([])
+element_cost = 3

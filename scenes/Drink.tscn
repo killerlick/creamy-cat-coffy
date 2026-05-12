@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://y2ox1ugtgjyo"]
+
+[ext_resource type="Script" path="res://scripts/drink_scene.gd" id="1_wd358"]
+
+[node name="Drink" type="Node2D"]
+script = ExtResource("1_wd358")
+
+[node name="addons" type="Node2D" parent="."]
+
+[node name="liquid" type="Sprite2D" parent="."]
+
+[node name="glasses" type="Sprite2D" parent="."]
+
+[node name="powder" type="Sprite2D" parent="."]
+
+[node name="topping" type="Node2D" parent="."]
