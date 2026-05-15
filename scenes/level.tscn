@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnkucty37mjr5"]
+
+[ext_resource type="PackedScene" uid="uid://cl3o4tlt4d7sv" path="res://scenes/comptoir.tscn" id="1_ktvs7"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_u1ola"]
+[ext_resource type="PackedScene" uid="uid://qrpje8cifsi8" path="res://scenes/Cuisine.tscn" id="2_curd1"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_u1ola")
+
+[node name="Comptoir" parent="." instance=ExtResource("1_ktvs7")]
+
+[node name="Cuisine" parent="." instance=ExtResource("2_curd1")]
+position = Vector2(1920, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+limit_smoothed = true

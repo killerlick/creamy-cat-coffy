@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://qrpje8cifsi8"]
+
+[ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="1_pogff"]
+
+[node name="Cuisine" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(15, 8.5)
+texture = ExtResource("1_pogff")
+centered = false

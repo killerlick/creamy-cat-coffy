@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl3o4tlt4d7sv"]
+
+[ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="1_cfgpo"]
+
+[node name="Comptoir" type="Node2D"]
+
+[node name="ColorRect" type="Sprite2D" parent="."]
+scale = Vector2(15, 8.438)
+texture = ExtResource("1_cfgpo")
+centered = false
