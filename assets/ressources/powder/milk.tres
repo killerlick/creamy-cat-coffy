@@ -1,11 +1,11 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://babak044bwwcd"]
+[gd_resource type="Resource" script_class="PowderElement" load_steps=2 format=3 uid="uid://babak044bwwcd"]
 
 [ext_resource type="Script" path="res://assets/ressources/powder/powder.gd" id="1_wgiu6"]
 
 [resource]
 script = ExtResource("1_wgiu6")
-type = 0
+type = 1
 element_type = 0
-element_name = ""
+element_name = "Milk"
 element_sprite = Array[Texture2D]([])
 element_cost = 0

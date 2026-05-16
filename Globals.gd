@@ -15,20 +15,22 @@ enum FOOD_TYPE{DRINK , FOOD}
 
 #tout les ressources a utilisés pour le jeu
 
-var ALL_ADDONS : Array[Food_elements]   
-var ALL_GLASSES : Array[Food_elements]  
-var ALL_LIQUID : Array[Food_elements]   
-var ALL_POWDER : Array[Food_elements]   
-var ALL_TOPPING : Array[Food_elements]  
+var ALL_ADDONS : Array[AddonElement]   
+var ALL_GLASSES : Array[GlassElement]  
+var ALL_LIQUID : Array[LiquidElement]   
+var ALL_POWDER : Array[PowderElement]   
+var ALL_TOPPING : Array[ToppingElement]  
 
+#nombre de place au comptoir
+var level_slot = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_ressource_from_folder("res://assets/ressources/addon/",ALL_ADDONS)
-	load_ressource_from_folder("res://assets/ressources/addon/",ALL_GLASSES)
-	load_ressource_from_folder("res://assets/ressources/addon/",ALL_LIQUID)
-	load_ressource_from_folder("res://assets/ressources/addon/",ALL_POWDER)
-	load_ressource_from_folder("res://assets/ressources/addon/",ALL_TOPPING)
+	load_ressource_from_folder("res://assets/ressources/glass/",ALL_GLASSES)
+	load_ressource_from_folder("res://assets/ressources/liquid/",ALL_LIQUID)
+	load_ressource_from_folder("res://assets/ressources/powder/",ALL_POWDER)
+	load_ressource_from_folder("res://assets/ressources/toppings/",ALL_TOPPING)
 
 
 func load_ressource_from_folder(path:String ,array_resource : Array) -> void :

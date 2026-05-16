@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b8otrg3gnwq6f"]
+[gd_resource type="Resource" script_class="AddonElement" load_steps=2 format=3 uid="uid://b8otrg3gnwq6f"]
 
 [ext_resource type="Script" path="res://assets/ressources/addon/drink_addon.gd" id="1_ge5ux"]
 
@@ -6,6 +6,6 @@
 script = ExtResource("1_ge5ux")
 type = 0
 element_type = 0
-element_name = "boba"
+element_name = "Boba"
 element_sprite = Array[Texture2D]([])
 element_cost = 0

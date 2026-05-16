@@ -1,14 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw5xrbfnapuyr"]
+[gd_scene load_steps=3 format=3 uid="uid://cw5xrbfnapuyr"]
 
 [ext_resource type="Script" path="res://scripts/cat.gd" id="1_x41no"]
+[ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="2_qilwo"]
 
 [node name="Cat" type="Node2D"]
 script = ExtResource("1_x41no")
 
 [node name="Cat_sprite" type="Sprite2D" parent="."]
+modulate = Color(0.819608, 0.313726, 1, 1)
+self_modulate = Color(1, 0.411765, 1, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("2_qilwo")
 
 [node name="Bar_attente" type="ProgressBar" parent="."]
 offset_right = 4.0
 offset_bottom = 27.0
 
 [node name="Order_bubble" type="Node2D" parent="."]
+
+[node name="Order_text" type="Label" parent="."]
+offset_top = -268.0
+offset_right = 115.0
+offset_bottom = -245.0
+text = "je veux un truc
+un cafe , du matcha"

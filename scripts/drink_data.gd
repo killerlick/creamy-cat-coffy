@@ -39,6 +39,19 @@ func is_equal(drink : DrinkData) -> bool:
 
 	return true
 
+func get_all_ingredients() -> Array[String]:
+	var ingredients:Array[String] = []
+	
+	ingredients.append(liquid.element_name)
+	ingredients.append(glass.element_name)
+	if powder != null:
+		ingredients.append(powder.element_name)
+	for addon in addons:
+		ingredients.append(addon.element_name)
+	for topping in toppings:
+		ingredients.append(topping.element_name)
+	return ingredients
+
 func random_drink()->void:
 	
 	addons.clear()
@@ -55,15 +68,13 @@ func random_drink()->void:
 	if liquid.allow_powder:
 		powder = Globals.ALL_POWDER.pick_random()
 
-	
-
 func _to_string() -> String:
 
 	var text = ""
-
-	text += "Liquid : " + str(liquid.element_name) + "\n"
 	text += "Glass : " + str(glass.element_name) + "\n"
-	text += "Powder : " + str(powder.element_name) + "\n"
+	text += "Liquid : " + str(liquid.element_name) + "\n"
+	if powder != null:
+		text += "Powder : " + str(powder.element_name) + "\n"
 
 	text += "Addons : "
 	for addon in addons:

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c2lmpjh1553w4"]
+[gd_resource type="Resource" script_class="GlassElement" load_steps=2 format=3 uid="uid://c2lmpjh1553w4"]
 
 [ext_resource type="Script" path="res://assets/ressources/glass/drink_glass.gd" id="1_23hus"]
 
@@ -6,6 +6,6 @@
 script = ExtResource("1_23hus")
 type = 0
 element_type = 0
-element_name = ""
+element_name = "Small"
 element_sprite = Array[Texture2D]([])
 element_cost = 0

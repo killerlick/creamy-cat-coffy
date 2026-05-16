@@ -1,10 +1,81 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl3o4tlt4d7sv"]
+[gd_scene load_steps=3 format=3 uid="uid://cl3o4tlt4d7sv"]
 
 [ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="1_cfgpo"]
+[ext_resource type="Script" path="res://scripts/comptoir.gd" id="1_l3mem"]
 
 [node name="Comptoir" type="Node2D"]
+script = ExtResource("1_l3mem")
 
-[node name="ColorRect" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0.337255, 1)
+z_index = -10
 scale = Vector2(15, 8.438)
 texture = ExtResource("1_cfgpo")
 centered = false
+
+[node name="catEmplacement" type="Node2D" parent="."]
+visible = false
+
+[node name="formation 2" type="Node2D" parent="catEmplacement"]
+visible = false
+
+[node name="chat 1" type="Marker2D" parent="catEmplacement/formation 2" groups=["chats_2"]]
+position = Vector2(1182, 445)
+
+[node name="chat 2" type="Marker2D" parent="catEmplacement/formation 2" groups=["chats_2"]]
+position = Vector2(568, 445)
+
+[node name="formation 3" type="Node2D" parent="catEmplacement"]
+visible = false
+
+[node name="chat 1" type="Marker2D" parent="catEmplacement/formation 3" groups=["chats_3"]]
+position = Vector2(476, 445)
+
+[node name="chat 2" type="Marker2D" parent="catEmplacement/formation 3" groups=["chats_3"]]
+position = Vector2(930, 445)
+
+[node name="chat 3" type="Marker2D" parent="catEmplacement/formation 3" groups=["chats_3"]]
+position = Vector2(1422, 445)
+
+[node name="formation 4" type="Node2D" parent="catEmplacement"]
+visible = false
+
+[node name="chat 1" type="Marker2D" parent="catEmplacement/formation 4" groups=["chats_4"]]
+position = Vector2(286, 445)
+
+[node name="chat 2" type="Marker2D" parent="catEmplacement/formation 4" groups=["chats_4"]]
+position = Vector2(692, 438)
+
+[node name="chat 3" type="Marker2D" parent="catEmplacement/formation 4" groups=["chats_4"]]
+position = Vector2(1113, 445)
+
+[node name="chat 4" type="Marker2D" parent="catEmplacement/formation 4" groups=["chats_4"]]
+position = Vector2(1513, 445)
+
+[node name="formation 5" type="Node2D" parent="catEmplacement"]
+visible = false
+
+[node name="chat 1" type="Marker2D" parent="catEmplacement/formation 5" groups=["chats_5"]]
+position = Vector2(253, 445)
+
+[node name="chat 2" type="Marker2D" parent="catEmplacement/formation 5" groups=["chats_5"]]
+position = Vector2(602, 438)
+
+[node name="chat 3" type="Marker2D" parent="catEmplacement/formation 5" groups=["chats_5"]]
+position = Vector2(932, 445)
+
+[node name="chat 4" type="Marker2D" parent="catEmplacement/formation 5" groups=["chats_5"]]
+position = Vector2(1289, 445)
+
+[node name="chat 5" type="Marker2D" parent="catEmplacement/formation 5" groups=["chats_5"]]
+position = Vector2(1572, 445)
+
+[node name="comptoir" type="Sprite2D" parent="."]
+modulate = Color(1, 0.482353, 0, 1)
+z_index = 10
+position = Vector2(0, 543)
+scale = Vector2(15, 4.17188)
+texture = ExtResource("1_cfgpo")
+centered = false
+
+[node name="drinkEmplacement" type="Node2D" parent="."]
