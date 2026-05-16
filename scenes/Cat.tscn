@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw5xrbfnapuyr"]
+[gd_scene load_steps=4 format=3 uid="uid://cw5xrbfnapuyr"]
 
 [ext_resource type="Script" path="res://scripts/cat.gd" id="1_x41no"]
 [ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="2_qilwo"]
 
-[node name="Cat" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yopp"]
+size = Vector2(388, 386)
+
+[node name="Cat" type="Node2D" groups=["cats"]]
 script = ExtResource("1_x41no")
 
 [node name="Cat_sprite" type="Sprite2D" parent="."]
@@ -18,9 +21,20 @@ offset_bottom = 27.0
 
 [node name="Order_bubble" type="Node2D" parent="."]
 
-[node name="Order_text" type="Label" parent="."]
+[node name="Order_text" type="Label" parent="Order_bubble"]
 offset_top = -268.0
-offset_right = 115.0
-offset_bottom = -245.0
+offset_right = 152.0
+offset_bottom = -219.0
 text = "je veux un truc
 un cafe , du matcha"
+
+[node name="Area2D" type="Area2D" parent="." groups=["cats"]]
+light_mask = 2
+visibility_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_4yopp")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

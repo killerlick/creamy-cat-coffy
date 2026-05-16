@@ -7,7 +7,8 @@
 script = ExtResource("1_l3mem")
 
 [node name="background" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0.337255, 1)
+modulate = Color(57.297, 60, 58.378, 0.914)
+self_modulate = Color(0.455348, 0.406316, 0.0447291, 1)
 z_index = -10
 scale = Vector2(15, 8.438)
 texture = ExtResource("1_cfgpo")
@@ -72,7 +73,8 @@ position = Vector2(1572, 445)
 
 [node name="comptoir" type="Sprite2D" parent="."]
 modulate = Color(1, 0.482353, 0, 1)
-z_index = 10
+self_modulate = Color(0.389371, 0.299193, 0.114966, 1)
+z_index = 5
 position = Vector2(0, 543)
 scale = Vector2(15, 4.17188)
 texture = ExtResource("1_cfgpo")

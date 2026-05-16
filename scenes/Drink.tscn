@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://y2ox1ugtgjyo"]
+[gd_scene load_steps=4 format=3 uid="uid://y2ox1ugtgjyo"]
 
 [ext_resource type="Script" path="res://scripts/drink_scene.gd" id="1_wd358"]
+[ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="2_rsr50"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qmre"]
+size = Vector2(129, 128)
 
 [node name="Drink" type="Node2D"]
+z_index = 10
 script = ExtResource("1_wd358")
 
 [node name="addons" type="Node2D" parent="."]
@@ -14,3 +19,16 @@ script = ExtResource("1_wd358")
 [node name="powder" type="Sprite2D" parent="."]
 
 [node name="topping" type="Node2D" parent="."]
+
+[node name="test" type="Sprite2D" parent="."]
+modulate = Color(94.595, 100, 100, 0.953)
+texture = ExtResource("2_rsr50")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_1qmre")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
