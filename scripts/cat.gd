@@ -25,10 +25,13 @@ func _ready() -> void:
 func receive_drink(drink : DrinkData) -> void:
 	var good_command = drink.is_equal(drink_wanted)
 	if good_command == true:
-		print("bonne command")
+		get_good_served()
 	else:
 		print("mauvaise commande")
 
+func get_good_served() -> void : 
+	print("bonne command")
+	queue_free()
 
 func set_order_text(orders:Array[String]):
 	var text = ""
@@ -36,10 +39,8 @@ func set_order_text(orders:Array[String]):
 		text+= "-"+ingredient+"\n"
 	order_text.text = text
 
-
 func generate_drink() -> void :
 	drink_wanted.random_drink()
-
 
 func _on_area_2d_mouse_entered() -> void:
 	mouse_inside = true

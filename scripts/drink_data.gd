@@ -7,6 +7,7 @@ var glass : GlassElement
 var powder : PowderElement
 var toppings : Array[ToppingElement]
 
+
 #retourne le coup de la boisson normalement
 func cost()-> int:
 	var drink_cost : int = 0

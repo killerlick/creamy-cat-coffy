@@ -21,7 +21,7 @@ script = ExtResource("1_wd358")
 [node name="topping" type="Node2D" parent="."]
 
 [node name="test" type="Sprite2D" parent="."]
-modulate = Color(94.595, 100, 100, 0.953)
+modulate = Color(0.511303, 0.540217, 0.540207, 0.953)
 texture = ExtResource("2_rsr50")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -29,6 +29,12 @@ texture = ExtResource("2_rsr50")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_1qmre")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -64.0
+offset_top = -151.0
+offset_right = -24.0
+offset_bottom = -128.0
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

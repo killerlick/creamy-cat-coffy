@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://p1131hlhick1"]
+
+[ext_resource type="Script" path="res://scripts/element_spawned.gd" id="1_02ofr"]
+[ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="2_fl0gd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxrel"]
+size = Vector2(130, 129)
+
+[node name="ElementSpawned" type="Node2D"]
+script = ExtResource("1_02ofr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.28685, 0.197753, 0.0267729, 1)
+z_index = 14
+texture = ExtResource("2_fl0gd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_lxrel")

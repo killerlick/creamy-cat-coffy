@@ -8,8 +8,8 @@ var cat_structure : PackedScene
 @onready var comptoir : Comptoir = $Comptoir
 @onready var cuisine : Cuisine = $Cuisine
 
-var slot_available : int = Globals.level_slot
-var slots_state : Array
+var slot_available : int = Globals.level_slot #le nombre des espaces disponibles
+var slots_state : Array #letat des differents espace disponible
 
 func _ready() -> void:
 	cat_structure = preload("res://scenes/Cat.tscn")
