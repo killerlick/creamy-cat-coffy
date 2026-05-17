@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://drasliuae4je"]
+
+[ext_resource type="Script" path="res://scripts/element_spawner.gd" id="1_7j0xf"]
+[ext_resource type="PackedScene" uid="uid://p1131hlhick1" path="res://scenes/element_spawned.tscn" id="2_33jej"]
+[ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="2_vmhxm"]
+[ext_resource type="Resource" uid="uid://b8otrg3gnwq6f" path="res://assets/ressources/addon/boba.tres" id="3_sxm0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbkr2"]
+size = Vector2(132, 131)
+
+[node name="Element_spawner" type="Node2D"]
+z_index = 11
+script = ExtResource("1_7j0xf")
+element_scene = ExtResource("2_33jej")
+element_resource = ExtResource("3_sxm0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(50.27, 1, 1, 1)
+texture = ExtResource("2_vmhxm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_qbkr2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -62.0
+offset_right = 20.0
+offset_bottom = -39.0
+text = "boba"
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

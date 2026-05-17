@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://qrpje8cifsi8"]
+[gd_scene load_steps=6 format=3 uid="uid://qrpje8cifsi8"]
 
 [ext_resource type="Script" path="res://scripts/cuisine.gd" id="1_i2id2"]
 [ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="1_pogff"]
 [ext_resource type="PackedScene" uid="uid://ccslqjb70ioxl" path="res://scenes/drink_spawner.tscn" id="2_aqct5"]
+[ext_resource type="PackedScene" uid="uid://drasliuae4je" path="res://scenes/element_spawner.tscn" id="3_52lpj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8ysw"]
 size = Vector2(248, 244)
@@ -12,6 +13,9 @@ script = ExtResource("1_i2id2")
 
 [node name="DrinkSpawner" parent="." instance=ExtResource("2_aqct5")]
 position = Vector2(176, 966)
+
+[node name="Element_spawner" parent="." instance=ExtResource("3_52lpj")]
+position = Vector2(172, 800)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(89.73, 87.568, 85.406, 1)
