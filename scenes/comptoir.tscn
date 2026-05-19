@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl3o4tlt4d7sv"]
+[gd_scene load_steps=4 format=3 uid="uid://cl3o4tlt4d7sv"]
 
 [ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="1_cfgpo"]
 [ext_resource type="Script" path="res://scripts/comptoir.gd" id="1_l3mem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpohc"]
+size = Vector2(131, 129)
 
 [node name="Comptoir" type="Node2D"]
 script = ExtResource("1_l3mem")
@@ -81,3 +84,15 @@ texture = ExtResource("1_cfgpo")
 centered = false
 
 [node name="drinkEmplacement" type="Node2D" parent="."]
+
+[node name="Poubelle" type="Area2D" parent="." groups=["poubelle"]]
+modulate = Color(100, 0.041, 0.023, 1)
+z_index = 6
+position = Vector2(160, 736)
+
+[node name="Sprite2D" type="Sprite2D" parent="Poubelle"]
+texture = ExtResource("1_cfgpo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Poubelle"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_fpohc")

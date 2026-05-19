@@ -1,12 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://qrpje8cifsi8"]
+[gd_scene load_steps=18 format=3 uid="uid://qrpje8cifsi8"]
 
 [ext_resource type="Script" path="res://scripts/cuisine.gd" id="1_i2id2"]
 [ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="1_pogff"]
 [ext_resource type="PackedScene" uid="uid://ccslqjb70ioxl" path="res://scenes/drink_spawner.tscn" id="2_aqct5"]
 [ext_resource type="PackedScene" uid="uid://drasliuae4je" path="res://scenes/element_spawner.tscn" id="3_52lpj"]
+[ext_resource type="Resource" uid="uid://5dpib0nxx7nk" path="res://assets/ressources/addon/seed.tres" id="4_4wcvm"]
+[ext_resource type="Resource" uid="uid://dlp51gvom4262" path="res://assets/ressources/liquid/coffee.tres" id="5_h5pw5"]
+[ext_resource type="Resource" uid="uid://b7ogrnywa7egl" path="res://assets/ressources/liquid/sparkling_water.tres" id="6_fxc8e"]
+[ext_resource type="Resource" uid="uid://cjxdxu5x01j6h" path="res://assets/ressources/liquid/tea.tres" id="7_18ul3"]
+[ext_resource type="Resource" uid="uid://cvjsv241rqhj4" path="res://assets/ressources/liquid/water.tres" id="8_iafhs"]
+[ext_resource type="Resource" uid="uid://d20ixh4x3swam" path="res://assets/ressources/powder/matcha.tres" id="9_nv4xh"]
+[ext_resource type="Resource" uid="uid://babak044bwwcd" path="res://assets/ressources/powder/milk.tres" id="10_3xwux"]
+[ext_resource type="Resource" uid="uid://dt607lqqs1y2v" path="res://assets/ressources/powder/strawberry.tres" id="11_prb4y"]
+[ext_resource type="Resource" uid="uid://406s5l8ri471" path="res://assets/ressources/toppings/cacao.tres" id="12_d3fpt"]
+[ext_resource type="Resource" uid="uid://eyu3fitbp1ty" path="res://assets/ressources/toppings/milk_cream.tres" id="13_b5x7e"]
+[ext_resource type="Resource" uid="uid://p4iu8h0fpadm" path="res://assets/ressources/toppings/sparkles.tres" id="14_t2dvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8ysw"]
 size = Vector2(248, 244)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ometn"]
+size = Vector2(359, 202)
 
 [node name="Cuisine" type="Node2D"]
 script = ExtResource("1_i2id2")
@@ -16,6 +30,50 @@ position = Vector2(176, 966)
 
 [node name="Element_spawner" parent="." instance=ExtResource("3_52lpj")]
 position = Vector2(172, 800)
+
+[node name="Element_spawner2" parent="." instance=ExtResource("3_52lpj")]
+position = Vector2(172, 628)
+element_resource = ExtResource("4_4wcvm")
+
+[node name="Element_spawner4" parent="." instance=ExtResource("3_52lpj")]
+position = Vector2(172, 434)
+element_resource = ExtResource("5_h5pw5")
+
+[node name="Element_spawner3" parent="." instance=ExtResource("3_52lpj")]
+position = Vector2(170, 248)
+element_resource = ExtResource("6_fxc8e")
+
+[node name="Element_spawner5" parent="." instance=ExtResource("3_52lpj")]
+position = Vector2(394, 242)
+element_resource = ExtResource("7_18ul3")
+
+[node name="Element_spawner6" parent="." instance=ExtResource("3_52lpj")]
+position = Vector2(394, 452)
+element_resource = ExtResource("8_iafhs")
+
+[node name="Element_spawner7" parent="." instance=ExtResource("3_52lpj")]
+position = Vector2(394, 650)
+element_resource = ExtResource("9_nv4xh")
+
+[node name="Element_spawner8" parent="." instance=ExtResource("3_52lpj")]
+position = Vector2(394, 814)
+element_resource = ExtResource("10_3xwux")
+
+[node name="Element_spawner9" parent="." instance=ExtResource("3_52lpj")]
+position = Vector2(592, 814)
+element_resource = ExtResource("11_prb4y")
+
+[node name="Element_spawner10" parent="." instance=ExtResource("3_52lpj")]
+position = Vector2(592, 646)
+element_resource = ExtResource("12_d3fpt")
+
+[node name="Element_spawner11" parent="." instance=ExtResource("3_52lpj")]
+position = Vector2(592, 456)
+element_resource = ExtResource("13_b5x7e")
+
+[node name="Element_spawner12" parent="." instance=ExtResource("3_52lpj")]
+position = Vector2(592, 244)
+element_resource = ExtResource("14_t2dvi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(89.73, 87.568, 85.406, 1)
@@ -31,4 +89,17 @@ shape = SubResource("RectangleShape2D_x8ysw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Drink_Spot"]
 modulate = Color(1, 1, 1, 0.308)
+texture = ExtResource("1_pogff")
+
+[node name="plateau de service" type="Area2D" parent="." groups=["plateau"]]
+position = Vector2(1001, 854)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plateau de service"]
+position = Vector2(37.5, 52)
+shape = SubResource("RectangleShape2D_ometn")
+
+[node name="Sprite2D" type="Sprite2D" parent="plateau de service"]
+modulate = Color(1, 0.65, 0, 1)
+position = Vector2(42, 53)
+scale = Vector2(2.60938, 1.46875)
 texture = ExtResource("1_pogff")

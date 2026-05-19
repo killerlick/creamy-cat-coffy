@@ -10,8 +10,9 @@ script = ExtResource("1_u1ola")
 
 [node name="Comptoir" parent="." instance=ExtResource("1_ktvs7")]
 
-[node name="Cuisine" parent="." instance=ExtResource("2_curd1")]
+[node name="Cuisine" parent="." node_paths=PackedStringArray("destination_position") instance=ExtResource("2_curd1")]
 position = Vector2(1920, 0)
+destination_position = NodePath("../Marker2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -19,3 +20,6 @@ limit_smoothed = true
 
 [node name="DrinkSpawner" parent="." instance=ExtResource("4_bkwrk")]
 position = Vector2(118, 955)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(900, 743)
