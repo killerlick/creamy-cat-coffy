@@ -5,7 +5,11 @@ var is_selected := false
 @export var drink_scene : PackedScene
 @export var drink_resource : Food_elements
 
+@onready var label : Label = $Label
 
+func _ready() -> void:
+	if drink_resource != null:
+		label.text = drink_resource.element_name + " cup"
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

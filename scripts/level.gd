@@ -17,7 +17,8 @@ func _ready() -> void:
 	for node in nodes:
 		slots_state.append({
 			"position" : node.position,
-			"available" : true
+			"available" : true ,
+			"cat" : null
 		})
 
 
@@ -46,10 +47,20 @@ func change_scene() -> void :
 
 func spawn_cat()-> void:
 	var cat = cat_structure.instantiate()
-	for i in slots_state:
-		if i.available == true:
-			cat.position = i.position
-			i.available = false
+	for i in range(slots_state.size()):
+		if slots_state[i].available == true:
+			cat.position = slots_state[i].position
+			slots_state[i].available = false
+			slots_state[i].cat = cat
+			cat.tree_exited.connect(func():
+				cat_removed(cat)
+			)
 			add_child(cat)
 			break
-	
+
+func cat_removed(cat) -> void:
+	for slot in slots_state:
+		if slot.cat == cat:
+			slot.cat = null
+			slot.available = true
+			break

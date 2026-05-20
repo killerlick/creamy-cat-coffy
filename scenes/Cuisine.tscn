@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://qrpje8cifsi8"]
+[gd_scene load_steps=21 format=3 uid="uid://qrpje8cifsi8"]
 
 [ext_resource type="Script" path="res://scripts/cuisine.gd" id="1_i2id2"]
 [ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="1_pogff"]
 [ext_resource type="PackedScene" uid="uid://ccslqjb70ioxl" path="res://scenes/drink_spawner.tscn" id="2_aqct5"]
 [ext_resource type="PackedScene" uid="uid://drasliuae4je" path="res://scenes/element_spawner.tscn" id="3_52lpj"]
+[ext_resource type="Resource" uid="uid://b0nv2musutd7u" path="res://assets/ressources/glass/medium.tres" id="3_xq3wu"]
 [ext_resource type="Resource" uid="uid://5dpib0nxx7nk" path="res://assets/ressources/addon/seed.tres" id="4_4wcvm"]
+[ext_resource type="Resource" uid="uid://b64tu0t5f4ah4" path="res://assets/ressources/glass/large.tres" id="4_lyqfh"]
 [ext_resource type="Resource" uid="uid://dlp51gvom4262" path="res://assets/ressources/liquid/coffee.tres" id="5_h5pw5"]
 [ext_resource type="Resource" uid="uid://b7ogrnywa7egl" path="res://assets/ressources/liquid/sparkling_water.tres" id="6_fxc8e"]
 [ext_resource type="Resource" uid="uid://cjxdxu5x01j6h" path="res://assets/ressources/liquid/tea.tres" id="7_18ul3"]
@@ -22,11 +24,22 @@ size = Vector2(248, 244)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ometn"]
 size = Vector2(359, 202)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5n6v"]
+size = Vector2(381, 175)
+
 [node name="Cuisine" type="Node2D"]
 script = ExtResource("1_i2id2")
 
 [node name="DrinkSpawner" parent="." instance=ExtResource("2_aqct5")]
 position = Vector2(176, 966)
+
+[node name="DrinkSpawner2" parent="." instance=ExtResource("2_aqct5")]
+position = Vector2(324, 966)
+drink_resource = ExtResource("3_xq3wu")
+
+[node name="DrinkSpawner3" parent="." instance=ExtResource("2_aqct5")]
+position = Vector2(467, 966)
+drink_resource = ExtResource("4_lyqfh")
 
 [node name="Element_spawner" parent="." instance=ExtResource("3_52lpj")]
 position = Vector2(172, 800)
@@ -103,3 +116,38 @@ modulate = Color(1, 0.65, 0, 1)
 position = Vector2(42, 53)
 scale = Vector2(2.60938, 1.46875)
 texture = ExtResource("1_pogff")
+
+[node name="Label" type="Label" parent="plateau de service"]
+offset_top = -88.0
+offset_right = 55.0
+offset_bottom = -65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.876298, 0.466057, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "service"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="." groups=["poubelle"]]
+position = Vector2(1524, 901)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+modulate = Color(0.303491, 0.182071, 0, 1)
+position = Vector2(121.5, 21)
+scale = Vector2(2.89844, 1.29688)
+texture = ExtResource("1_pogff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(122.5, 19.5)
+shape = SubResource("RectangleShape2D_j5n6v")
+
+[node name="Label" type="Label" parent="Area2D"]
+modulate = Color(0.454902, 0.486275, 0, 1)
+offset_left = -40.0
+offset_top = -103.0
+offset_right = 28.0
+offset_bottom = -80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "poubelle"
