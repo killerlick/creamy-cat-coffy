@@ -22,7 +22,7 @@ var ALL_POWDER : Array[PowderElement]
 var ALL_TOPPING : Array[ToppingElement]  
 
 #nombre de place au comptoir
-var level_slot = 3
+var level_slot = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -11,12 +11,13 @@ var mouse_inside := false
 @onready var order_bubble : Node2D =$Order_bubble
 @onready var order_text : Label = $Order_bubble/Order_text
 @onready var area : Area2D = $Area2D
-
+@onready var animation : AnimationPlayer =  $AnimationPlayer
  
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	animation.play("ready")
 	drink_wanted=DrinkData.new()
 	await generate_drink()
 	print(drink_wanted.to_string())

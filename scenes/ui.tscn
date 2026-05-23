@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://byk634q3fq2ju"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BoxContainer" type="BoxContainer" parent="Control/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/BoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Time : "
+
+[node name="col" type="ColorRect" parent="Control/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/BoxContainer"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
+
+[node name="col2" type="ColorRect" parent="Control/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/BoxContainer/col"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+offset_left = 1.0
+offset_right = 301.0
+offset_bottom = 3.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+color = Color(0, 1, 0, 1)
+
+[node name="BoxContainer2" type="BoxContainer" parent="Control/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Control/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/BoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Goal :"
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/BoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 48
+text = "0 / 2000 $"
+horizontal_alignment = 2

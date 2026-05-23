@@ -9,4 +9,4 @@ allow_powder = false
 element_type = 0
 element_name = "Tea"
 element_sprite = Array[Texture2D]([])
-element_cost = 0
+element_cost = 5

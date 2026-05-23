@@ -8,6 +8,10 @@ var cat_structure : PackedScene
 @onready var comptoir : Comptoir = $Comptoir
 @onready var cuisine : Cuisine = $Cuisine
 
+@export var level : int = 0
+@export var goal : float = 0.0
+@export var client_number : int = 0 
+
 var slot_available : int = Globals.level_slot #le nombre des espaces disponibles
 var slots_state : Array #letat des differents espace disponible
 
