@@ -40,19 +40,20 @@ func add_ingredient(drinkElement : Drink_elements):
 		return
 	if drinkElement is AddonElement:
 		drink_data.addons.append(drinkElement)
-	elif drinkElement is LiquidElement:
+	elif drinkElement is LiquidElement and drink_data.liquid == null:
 		drink_data.liquid = drinkElement
 		#liquid_sprite.texture = drinkElement.element_sprite[glass_number()]
 	elif drinkElement is GlassElement:
 		drink_data.glass = drinkElement
 		#glass_sprite.texture = drinkElement.element_sprite[0]
-	elif drinkElement is PowderElement:
+	elif drinkElement is PowderElement and drink_data.powder == null:
 		drink_data.powder = drinkElement
 		#powder_sprite.texture = drinkElement.element_sprite[glass_number()]
 	elif  drinkElement is ToppingElement:
 		drink_data.toppings.append(drinkElement)
 	else :
-		print("ingredient non reconnu")
+		print("ingredient non reconnu ou pas ajoutable")
+		return
 	put_text(drinkElement.element_name)
 	#refresh_sprite()
 
