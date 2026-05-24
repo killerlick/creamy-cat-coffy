@@ -28,3 +28,7 @@ position = Vector2(2970, 941)
 
 [node name="position_comptoir" type="Marker2D" parent="position_plateau"]
 position = Vector2(963, 952)
+
+[node name="Timer_group" type="Node" parent="."]
+
+[node name="Pause_entre_les_clients" type="Timer" parent="Timer_group"]
