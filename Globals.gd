@@ -3,6 +3,9 @@ extends Node
 
 @export var t : Array[int]
 
+enum CAT_PART_CUSTOMIZE {HEAD , EARS , MOUSE , NOSE , CLOTHES}
+enum CAT_MOOD {GOOD , MID , BAD}
+
 enum DRINK_COMPOSANT {ADDON , GLASS , LIQUID , POWDER , TOPPING} #De quoi est composé la boisson
 
 enum ADDONS {BOBA , SEED}  #L'interieur de la boisson qui soit solide ou semi

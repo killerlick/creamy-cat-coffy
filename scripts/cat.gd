@@ -6,17 +6,24 @@ var drink_wanted : DrinkData
 
 var mouse_inside := false
 
-@onready var cat_sprite : Sprite2D = $"Cat sprite"
+@export var cat_data : CatResource
+
+var cat_mood : Globals.CAT_MOOD
+
+@onready var timer : Timer = $patience
+
+var cat_sprite : Sprite2D = Sprite2D.new()
 @onready var bar_attente : ProgressBar = $Bar_attente
 @onready var order_bubble : Node2D =$Order_bubble
 @onready var order_text : Label = $Order_bubble/Order_text
 @onready var area : Area2D = $Area2D
-@onready var animation : AnimationPlayer =  $AnimationPlayer
+@onready var animation : AnimationPlayer = $AnimationPlayer
  
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	cat_sprite.texture = cat_data.body_sprite[0]
 	animation.play("ready")
 	drink_wanted=DrinkData.new()
 	await generate_drink()

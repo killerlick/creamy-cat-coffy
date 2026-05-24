@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="CatResource" load_steps=2 format=3 uid="uid://bibjeivr57ewi"]
+[gd_resource type="Resource" script_class="CatResource" load_steps=3 format=3 uid="uid://bibjeivr57ewi"]
 
-[ext_resource type="Script" path="res://scripts/cat_resource.gd" id="1_oo3ed"]
+[ext_resource type="Script" path="res://scripts/ressources_script/cat_resource.gd" id="1_oo3ed"]
+[ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="1_t4gu3"]
 
 [resource]
 script = ExtResource("1_oo3ed")
 rarity = 1
 pull_rate = 100.0
 tip = Array[int]([2000, 50, 0])
-body_sprite = Array[Texture2D]([])
+body_sprite = Array[Texture2D]([ExtResource("1_t4gu3")])
 hat_sprite = Array[Texture2D]([])
 clothes_sprite = Array[Texture2D]([])
