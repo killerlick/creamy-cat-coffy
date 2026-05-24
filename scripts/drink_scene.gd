@@ -1,11 +1,13 @@
 extends Node2D
 class_name Drink
 
-var original_position : Vector2
 var drink_data : DrinkData = DrinkData.new()
 var is_selected : bool = false
 var dragging : bool = false
 var is_instantiate : bool = false
+var is_in_plateau = false
+var is_in_central = false
+var current_spot = null
 
 @onready var addons_sprite_container : Node2D = $addons
 @onready var liquid_sprite : Sprite2D = $liquid
@@ -17,13 +19,20 @@ var is_instantiate : bool = false
 
 
 func _ready() -> void:
-
 		spawning_topping()
 		spawning_addon()
 
 func _process(delta: float) -> void:
-	if dragging:
+	if dragging :
 		global_position = get_global_mouse_position()
+	#print(global_position)
+
+func _exit_tree() -> void:
+	if is_queued_for_deletion():
+		print("bye")
+	else:
+		print("juste reparent")
+
 
 #ajoute element dans le drink, aussi affiche le bon sprite
 func add_ingredient(drinkElement : Drink_elements):
@@ -89,28 +98,45 @@ func put_text(string : String) :
 		label.text += "\n" + string
 
 #action quand tu lache le verre quelque part
-#enelever la boucle if pour un "match"
+#enlever la boucle if pour un "match"
+#raccourcie la fonction , trop longue pour rien
 func on_drop():
+	dragging = false
 	var overlappings = area.get_overlapping_areas()
+	
 	for obj in overlappings:
 		var objParent = obj.get_parent()
-		if objParent is Cat:
+		
+		if objParent is Cat:#quand donner au chat
 			objParent.receive_drink(drink_data)
 			queue_free()
 			return
-		elif obj.is_in_group("drink_spots"):
-			print("dans le drink spot")
-			original_position = obj.global_position
+			
+		elif obj.is_in_group("drink_spots") and objParent is Cuisine and is_in_central == false:#quand deposer sur lassiette de creation
+			var cuisine : Cuisine = objParent
+			if cuisine.central_spot.drink != null:
+				break
+			if is_in_plateau:
+				is_in_plateau = false
+				cuisine.remove_from_spot(self)
 			is_instantiate = true
-			position = original_position
-			print(position)
+			is_in_central = true
+			objParent.put_drink_in_central(self)
 			return
-		elif obj.is_in_group("plateau") and is_instantiate:
-			if objParent is Cuisine:
-				print("cuisine plateau")
-				original_position = objParent.move_to_comptoir(self)
-				return
-		elif obj.is_in_group("poubelle") and is_instantiate:
+				
+		elif obj.is_in_group("plateau") and objParent is Cuisine and is_in_plateau==false:#quand deposer sur le plateau
+			var cuisine : Cuisine = objParent
+			if cuisine.plateau_free_spot() == false:
+				break
+			if is_in_central:
+				is_in_central =false
+				cuisine.remove_from_central(self)
+			is_instantiate = true
+			is_in_plateau = true
+			objParent.put_drink_in_spot(self)
+			return
+				
+		elif obj.is_in_group("poubelle") and is_instantiate:#quand deposer sur la poubelle
 			print("jeter dans poubelle ")
 			queue_free()
 			return
@@ -118,8 +144,8 @@ func on_drop():
 	if not is_instantiate:
 		queue_free()
 		print("dommage")
-	else :
-		position = original_position
+	elif current_spot != null:
+		global_position = current_spot.marker.global_position
 
 #refresh les sprite des addons et topping (car plusieurs)
 func refresh_sprite():

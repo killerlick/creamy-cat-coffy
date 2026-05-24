@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="2_rsr50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qmre"]
-size = Vector2(129, 128)
+size = Vector2(61, 128)
 
 [node name="Drink" type="Node2D"]
 z_index = 10
@@ -22,12 +22,14 @@ script = ExtResource("1_wd358")
 
 [node name="test" type="Sprite2D" parent="."]
 modulate = Color(0.511303, 0.540217, 0.540207, 0.953)
+position = Vector2(-1, 0)
+scale = Vector2(0.484375, 1)
 texture = ExtResource("2_rsr50")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.5, 0)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_1qmre")
 
 [node name="Label" type="Label" parent="."]

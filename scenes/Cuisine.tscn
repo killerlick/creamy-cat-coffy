@@ -22,7 +22,7 @@
 size = Vector2(248, 244)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ometn"]
-size = Vector2(359, 202)
+size = Vector2(359, 113)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5n6v"]
 size = Vector2(381, 175)
@@ -104,17 +104,20 @@ shape = SubResource("RectangleShape2D_x8ysw")
 modulate = Color(1, 1, 1, 0.308)
 texture = ExtResource("1_pogff")
 
+[node name="Marker2D" type="Marker2D" parent="Drink_Spot"]
+
 [node name="plateau de service" type="Area2D" parent="." groups=["plateau"]]
+z_index = 30
 position = Vector2(1001, 854)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plateau de service"]
-position = Vector2(37.5, 52)
+position = Vector2(37.5, 96.5)
 shape = SubResource("RectangleShape2D_ometn")
 
 [node name="Sprite2D" type="Sprite2D" parent="plateau de service"]
 modulate = Color(1, 0.65, 0, 1)
-position = Vector2(42, 53)
-scale = Vector2(2.60938, 1.46875)
+position = Vector2(39.0001, 115.5)
+scale = Vector2(2.65625, 0.492188)
 texture = ExtResource("1_pogff")
 
 [node name="Label" type="Label" parent="plateau de service"]
@@ -129,20 +132,29 @@ text = "service"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Area2D" type="Area2D" parent="." groups=["poubelle"]]
+[node name="Marker2D" type="Marker2D" parent="plateau de service" groups=["drinks_plateau_spots"]]
+position = Vector2(-89, 94)
+
+[node name="Marker2D2" type="Marker2D" parent="plateau de service" groups=["drinks_plateau_spots"]]
+position = Vector2(38, 94)
+
+[node name="Marker2D3" type="Marker2D" parent="plateau de service" groups=["drinks_plateau_spots"]]
+position = Vector2(166, 100)
+
+[node name="poubelle" type="Area2D" parent="." groups=["poubelle"]]
 position = Vector2(1524, 901)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="poubelle"]
 modulate = Color(0.303491, 0.182071, 0, 1)
 position = Vector2(121.5, 21)
 scale = Vector2(2.89844, 1.29688)
 texture = ExtResource("1_pogff")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="poubelle"]
 position = Vector2(122.5, 19.5)
 shape = SubResource("RectangleShape2D_j5n6v")
 
-[node name="Label" type="Label" parent="Area2D"]
+[node name="Label" type="Label" parent="poubelle"]
 modulate = Color(0.454902, 0.486275, 0, 1)
 offset_left = -40.0
 offset_top = -103.0

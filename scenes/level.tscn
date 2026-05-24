@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnkucty37mjr5"]
+[gd_scene load_steps=5 format=3 uid="uid://cnkucty37mjr5"]
 
 [ext_resource type="PackedScene" uid="uid://cl3o4tlt4d7sv" path="res://scenes/comptoir.tscn" id="1_ktvs7"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_u1ola"]
 [ext_resource type="PackedScene" uid="uid://qrpje8cifsi8" path="res://scenes/Cuisine.tscn" id="2_curd1"]
-[ext_resource type="PackedScene" uid="uid://ccslqjb70ioxl" path="res://scenes/drink_spawner.tscn" id="4_bkwrk"]
 [ext_resource type="PackedScene" uid="uid://byk634q3fq2ju" path="res://scenes/ui.tscn" id="5_paq7c"]
 
 [node name="Level" type="Node2D"]
@@ -11,18 +10,21 @@ script = ExtResource("1_u1ola")
 
 [node name="Comptoir" parent="." instance=ExtResource("1_ktvs7")]
 
-[node name="Cuisine" parent="." node_paths=PackedStringArray("destination_position") instance=ExtResource("2_curd1")]
+[node name="Cuisine" parent="." node_paths=PackedStringArray("cuisine_position", "comptoir_position") instance=ExtResource("2_curd1")]
 position = Vector2(1920, 0)
-destination_position = NodePath("../Marker2D")
+cuisine_position = NodePath("../position_plateau/position_kitchen")
+comptoir_position = NodePath("../position_plateau/position_comptoir")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 limit_smoothed = true
 
-[node name="DrinkSpawner" parent="." instance=ExtResource("4_bkwrk")]
-position = Vector2(118, 955)
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(900, 743)
-
 [node name="UI" parent="." instance=ExtResource("5_paq7c")]
+
+[node name="position_plateau" type="Node" parent="."]
+
+[node name="position_kitchen" type="Marker2D" parent="position_plateau"]
+position = Vector2(2970, 941)
+
+[node name="position_comptoir" type="Marker2D" parent="position_plateau"]
+position = Vector2(963, 952)

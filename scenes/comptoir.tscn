@@ -73,11 +73,12 @@ position = Vector2(1289, 445)
 position = Vector2(1572, 445)
 
 [node name="comptoir" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 0.482353, 0, 1)
 self_modulate = Color(0.389371, 0.299193, 0.114966, 1)
 z_index = 5
 position = Vector2(0, 836)
-scale = Vector2(15, 1.88282)
+scale = Vector2(30, 1.883)
 texture = ExtResource("1_cfgpo")
 centered = false
 

@@ -20,13 +20,14 @@ func _ready() -> void:
 	var nodes = get_tree().get_nodes_in_group("chats_"+str(slot_available))
 	for node in nodes:
 		slots_state.append({
-			"position" : node.position,
+			"marker" : node,
 			"available" : true ,
 			"cat" : null
 		})
 
 
 func _process(delta: float) -> void:
+	#print(cuisine.plateau_de_verre.position)
 	camera2d.position.x = lerp(camera2d.position.x, posX, 5.0*delta) #change de scene de facon fluide
 
 func  _input(event: InputEvent) -> void:
@@ -39,21 +40,22 @@ func  _input(event: InputEvent) -> void:
 	if event.is_action_pressed("spawn_cat"):
 		spawn_cat()
 
-
 #comptoir to cuisine , cuisine to comptoir
 func change_scene() -> void :
 	if(in_kitchen == false):
 		in_kitchen = true
+		cuisine.in_kitchen = true
 		posX = 1920
 	elif(in_kitchen == true):
 		in_kitchen = false
+		cuisine.in_kitchen = false
 		posX = 0.0
 
 func spawn_cat()-> void:
 	var cat = cat_structure.instantiate()
 	for i in range(slots_state.size()):
 		if slots_state[i].available == true:
-			cat.position = slots_state[i].position
+			cat.position = slots_state[i].marker.position
 			slots_state[i].available = false
 			slots_state[i].cat = cat
 			cat.tree_exited.connect(func():
