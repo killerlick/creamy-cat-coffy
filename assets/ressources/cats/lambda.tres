@@ -8,6 +8,7 @@ script = ExtResource("1_oo3ed")
 rarity = 1
 pull_rate = 100.0
 tip = Array[int]([2000, 50, 0])
+timer = 50.0
 body_sprite = Array[Texture2D]([ExtResource("1_t4gu3")])
 hat_sprite = Array[Texture2D]([])
 clothes_sprite = Array[Texture2D]([])

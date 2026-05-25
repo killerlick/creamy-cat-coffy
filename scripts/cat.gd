@@ -85,4 +85,4 @@ func begin_timer() :
 	timer.start()
 
 func _on_patience_timeout() -> void:
-	animation.play("done") 
+	quitting()

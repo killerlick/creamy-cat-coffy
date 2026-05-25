@@ -59,15 +59,15 @@ func random_drink()->void:
 	toppings.clear()
 	
 	for i in range(randi_range(0,1)):
-			addons.append(Globals.ALL_ADDONS.pick_random())
+			addons.append(GameData.ALL_ADDONS.pick_random())
 	
 	for i in range(randi_range(0,1)):
-		toppings.append(Globals.ALL_TOPPING.pick_random())
+		toppings.append(GameData.ALL_TOPPING.pick_random())
 	
-	liquid = Globals.ALL_LIQUID.pick_random()
-	glass = Globals.ALL_GLASSES.pick_random()
+	liquid = GameData.ALL_LIQUID.pick_random()
+	glass = GameData.ALL_GLASSES.pick_random()
 	if liquid.allow_powder:
-		powder = Globals.ALL_POWDER.pick_random()
+		powder = GameData.ALL_POWDER.pick_random()
 
 func _to_string() -> String:
 
