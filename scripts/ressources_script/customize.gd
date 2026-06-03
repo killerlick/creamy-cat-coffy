@@ -1,6 +1,8 @@
 extends Resource
 class_name CustomizeItem
 
+var id
+
 @export var cost : int = 0 
 @export var available : bool = false
 @export var cat_part : Globals.CAT_PART_CUSTOMIZE

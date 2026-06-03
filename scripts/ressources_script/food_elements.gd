@@ -1,6 +1,8 @@
 class_name Food_elements
 extends Resource
 
+var id
+
 @export var element_name : String # nom de l'element
 
 #exemple : [0]=small cup , [1]=medium , [2]=big

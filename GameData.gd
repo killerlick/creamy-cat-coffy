@@ -8,6 +8,10 @@ var ALL_LIQUID : Array[LiquidElement]
 var ALL_POWDER : Array[PowderElement]   
 var ALL_TOPPING : Array[ToppingElement]  
 
+var ALL_CAT: Array
+var ALL_PLAYER_CUSTOM :Array
+var ALL_CAT_CUSTOM:Array
+
 
 
 # Called when the node enters the scene tree for the first time.
