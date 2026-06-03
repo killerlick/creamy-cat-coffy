@@ -10,6 +10,9 @@ var mouse_inside := false
 
 var cat_mood : Globals.CAT_MOOD
 
+var at_half : bool = false
+var at_quarter : bool = false
+
 var cat_sprite : Sprite2D = Sprite2D.new()
 
 
@@ -37,6 +40,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if timer.time_left> 0 :
 		bar_attente.value = timer.time_left
+		
+		var ratio = timer.time_left / timer.wait_time
+		
+		if(ratio <= 0.2 and cat_mood != Globals.CAT_MOOD.BAD ):
+			cat_mood = Globals.CAT_MOOD.BAD
+		elif(ratio <= 0.5 and cat_mood == Globals.CAT_MOOD.GOOD ):
+			cat_mood = Globals.CAT_MOOD.MID
+
+
 
 func receive_drink(drink : DrinkData) -> void:
 	var good_command = drink.is_equal(drink_wanted)
