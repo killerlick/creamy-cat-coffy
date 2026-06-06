@@ -8,7 +8,7 @@ var mouse_inside := false
 
 @export var cat_data : CatResource
 
-var cat_mood : Globals.CAT_MOOD
+var cat_mood : Globals.CAT_MOOD = Globals.CAT_MOOD.GOOD
 
 var at_half : bool = false
 var at_quarter : bool = false
@@ -57,15 +57,17 @@ func receive_drink(drink : DrinkData) -> void:
 		quitting()
 	else:
 		get_bad_command()
-	
 
+func get_money() -> int:
+	var money = cat_data.tip[cat_mood]
+	return money
 
 func get_good_served() -> void : 
 	print("bonne command")
 
 func get_bad_command() -> void:
 	print("mauvaise commande")
-	timer.wait_time -= 4
+	timer.start(max(timer.time_left -4.0 , 0,0))
 
 func quitting()->void:
 	animation.play("quit")
@@ -89,7 +91,8 @@ func _on_area_2d_mouse_exited() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if(anim_name == "ready"):
-		begin_timer() 
+		begin_timer()
+		animation.play("idle") 
 	elif(anim_name == "quit"):
 		queue_free()
 

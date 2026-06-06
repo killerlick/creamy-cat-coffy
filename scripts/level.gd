@@ -3,14 +3,18 @@ extends Node2D
 var in_kitchen : bool = false
 var posX : float = 0.0
 var cat_structure : PackedScene
+var money_level : int  = 0 
 
 @onready var camera2d : Camera2D = $Camera2D
 @onready var comptoir : Comptoir = $Comptoir
 @onready var cuisine : Cuisine = $Cuisine
+@onready var ui : Ui = $UI
 
 @export var level : int = 0
 @export var goal : float = 0.0
 @export var client_number : int = 0 
+
+
 
 var slot_available : int = Globals.level_slot #le nombre des espaces disponibles
 var slots_state : Array #letat des differents espace disponible
@@ -64,9 +68,15 @@ func spawn_cat()-> void:
 			add_child(cat)
 			break
 
-func cat_removed(cat) -> void:
+func cat_removed(cat : Cat) -> void:
+	add_money(cat.get_money())
 	for slot in slots_state:
 		if slot.cat == cat:
 			slot.cat = null
 			slot.available = true
 			break
+
+func add_money(money : int):
+	money_level += money
+	ui.update_money(money_level)
+	
