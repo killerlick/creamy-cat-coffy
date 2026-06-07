@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/cuisine.gd" id="1_i2id2"]
 [ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="1_pogff"]
-[ext_resource type="PackedScene" uid="uid://ccslqjb70ioxl" path="res://scenes/drink_spawner.tscn" id="2_aqct5"]
-[ext_resource type="PackedScene" uid="uid://drasliuae4je" path="res://scenes/element_spawner.tscn" id="3_52lpj"]
+[ext_resource type="PackedScene" uid="uid://ccslqjb70ioxl" path="res://scenes/objects/drink_spawner.tscn" id="2_aqct5"]
+[ext_resource type="PackedScene" uid="uid://drasliuae4je" path="res://scenes/objects/element_spawner.tscn" id="3_52lpj"]
 [ext_resource type="Resource" uid="uid://b0nv2musutd7u" path="res://assets/ressources/glass/medium.tres" id="3_xq3wu"]
 [ext_resource type="Resource" uid="uid://5dpib0nxx7nk" path="res://assets/ressources/addon/seed.tres" id="4_4wcvm"]
 [ext_resource type="Resource" uid="uid://b64tu0t5f4ah4" path="res://assets/ressources/glass/large.tres" id="4_lyqfh"]

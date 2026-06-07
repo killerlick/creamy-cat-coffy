@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://byswalk8y8o4s"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_baa75"]
+
+[node name="Hub Central" type="Node2D"]
+script = ExtResource("1_baa75")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 35
+alignment = 2
+
+[node name="start day" type="Button" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "START DAY"
+
+[node name="cozy mode" type="Button" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "COZY MODE"
+
+[node name="customize" type="Button" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "CUSTOMIZE"
+
+[connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/start day" to="." method="_on_start_day_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/cozy mode" to="." method="_on_cozy_mode_button_up"]
+[connection signal="button_up" from="CanvasLayer/Control/MarginContainer/HBoxContainer/customize" to="." method="_on_customize_button_up"]

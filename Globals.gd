@@ -19,6 +19,7 @@ enum FOOD_TYPE{DRINK , FOOD}
 var sound : int = 100
 var money : int = 0
 var upgrades : Array = []
+var day : int = 0
 
 var head : CustomizeItem
 var ears : CustomizeItem

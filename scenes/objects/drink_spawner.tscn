@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ccslqjb70ioxl"]
 
 [ext_resource type="Script" path="res://scripts/drink_spawner.gd" id="1_ydrfp"]
-[ext_resource type="PackedScene" uid="uid://y2ox1ugtgjyo" path="res://scenes/Drink.tscn" id="2_ynvmd"]
+[ext_resource type="PackedScene" uid="uid://y2ox1ugtgjyo" path="res://scenes/objects/Drink.tscn" id="2_ynvmd"]
 [ext_resource type="Resource" uid="uid://c2lmpjh1553w4" path="res://assets/ressources/glass/small.tres" id="3_7evxo"]
 [ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="3_nwbfk"]
 

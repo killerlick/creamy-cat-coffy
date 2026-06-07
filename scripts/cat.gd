@@ -14,6 +14,7 @@ var at_half : bool = false
 var at_quarter : bool = false
 
 var cat_sprite : Sprite2D = Sprite2D.new()
+var fill_style = StyleBoxFlat.new()
 
 
 @onready var timer : Timer = $patience
@@ -45,10 +46,14 @@ func _process(delta: float) -> void:
 		
 		if(ratio <= 0.2 and cat_mood != Globals.CAT_MOOD.BAD ):
 			cat_mood = Globals.CAT_MOOD.BAD
+			update_color(Color.RED)
 		elif(ratio <= 0.5 and cat_mood == Globals.CAT_MOOD.GOOD ):
 			cat_mood = Globals.CAT_MOOD.MID
+			update_color(Color.YELLOW)
 
-
+func update_color(color : Color):
+	fill_style.bg_color = color
+	bar_attente.add_theme_stylebox_override("fill" , fill_style)
 
 func receive_drink(drink : DrinkData) -> void:
 	var good_command = drink.is_equal(drink_wanted)
@@ -67,7 +72,7 @@ func get_good_served() -> void :
 
 func get_bad_command() -> void:
 	print("mauvaise commande")
-	timer.start(max(timer.time_left -4.0 , 0,0))
+	timer.start(max(timer.time_left -4.0 , 0.0))
 
 func quitting()->void:
 	animation.play("quit")

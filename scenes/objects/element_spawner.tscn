@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://drasliuae4je"]
 
 [ext_resource type="Script" path="res://scripts/element_spawner.gd" id="1_7j0xf"]
-[ext_resource type="PackedScene" uid="uid://p1131hlhick1" path="res://scenes/element_spawned.tscn" id="2_33jej"]
+[ext_resource type="PackedScene" uid="uid://p1131hlhick1" path="res://scenes/objects/element_spawned.tscn" id="2_33jej"]
 [ext_resource type="Texture2D" uid="uid://dhjuoxaevqqr1" path="res://icon.svg" id="2_vmhxm"]
 [ext_resource type="Resource" uid="uid://b8otrg3gnwq6f" path="res://assets/ressources/addon/boba.tres" id="3_sxm0i"]
 

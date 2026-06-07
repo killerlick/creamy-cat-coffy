@@ -20,7 +20,7 @@ var slot_available : int = Globals.level_slot #le nombre des espaces disponibles
 var slots_state : Array #letat des differents espace disponible
 
 func _ready() -> void:
-	cat_structure = preload("res://scenes/Cat.tscn")
+	cat_structure = preload("res://scenes/objects/Cat.tscn")
 	var nodes = get_tree().get_nodes_in_group("chats_"+str(slot_available))
 	for node in nodes:
 		slots_state.append({
