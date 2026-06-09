@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cnkucty37mjr5" path="res://scenes/levels/level.tscn" id="1_m6sp6"]
 
 [node name="Level" instance=ExtResource("1_m6sp6")]
-client_number = 4
+client_remaining = 2
 
 [node name="Pause_entre_les_clients" parent="Timer_group" index="0"]
 wait_time = 10000.0

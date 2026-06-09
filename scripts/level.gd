@@ -13,7 +13,8 @@ var money_level : int  = 0
 
 @export var level : int = 0
 @export var goal : float = 0.0
-@export var client_number : int = 0 
+@export var client_remaining : int = 0 
+var client_active = 0
 
 
 
@@ -35,6 +36,9 @@ func _ready() -> void:
 #min: temps minimum possible pour attendre
 #max: temps maximum possible pour attendre
 func start_client_timer(min:float = 3.0 , max:float = -1.0):
+	if client_remaining <= 0:
+		return
+	
 	if max < 0:
 		max = min
 	
@@ -46,6 +50,8 @@ func start_client_timer(min:float = 3.0 , max:float = -1.0):
 func _process(delta: float) -> void:
 	#print(cuisine.plateau_de_verre.position)
 	camera2d.position.x = lerp(camera2d.position.x, posX, 5.0*delta) #change de scene de facon fluide
+
+
 
 func  _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Right"):
@@ -69,17 +75,26 @@ func change_scene() -> void :
 		posX = 0.0
 
 func spawn_cat()-> void:
-	var cat = cat_structure.instantiate()
+	
+	if client_remaining<=0:
+		return
+	
 	for i in range(slots_state.size()):
 		if slots_state[i].available == true:
+
+			var cat = cat_structure.instantiate()
 			cat.position = slots_state[i].marker.position
 			slots_state[i].available = false
 			slots_state[i].cat = cat
+			
+			client_active +=  1
+			client_remaining -= 1
+			
 			cat.tree_exited.connect(func():
 				cat_removed(cat)
 			)
 			add_child(cat)
-			break
+			return
 
 func cat_removed(cat : Cat) -> void:
 	add_money(cat.get_money())
@@ -88,6 +103,10 @@ func cat_removed(cat : Cat) -> void:
 			slot.cat = null
 			slot.available = true
 			break
+	client_active -= 1
+	
+	if client_active == 0 and client_remaining == 0:
+		level_end()
 
 func add_money(money : int):
 	money_level += money
@@ -96,3 +115,6 @@ func add_money(money : int):
 func _on_pause_entre_les_clients_timeout() -> void:
 	spawn_cat() # Replace with function body.
 	start_client_timer(3,8)
+
+func level_end():
+	print("niveau fini")
