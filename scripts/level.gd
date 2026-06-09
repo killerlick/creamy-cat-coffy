@@ -8,6 +8,7 @@ var money_level : int  = 0
 @onready var camera2d : Camera2D = $Camera2D
 @onready var comptoir : Comptoir = $Comptoir
 @onready var cuisine : Cuisine = $Cuisine
+@onready var client_timer : Timer = $Timer_group/Pause_entre_les_clients
 @onready var ui : Ui = $UI
 
 @export var level : int = 0
@@ -28,6 +29,18 @@ func _ready() -> void:
 			"available" : true ,
 			"cat" : null
 		})
+	start_client_timer(5)
+
+#Demarre le timer qui devra spawn un chat sur la scene
+#min: temps minimum possible pour attendre
+#max: temps maximum possible pour attendre
+func start_client_timer(min:float = 3.0 , max:float = -1.0):
+	if max < 0:
+		max = min
+	
+	var timer = randf_range(min,max)
+	client_timer.wait_time = timer
+	client_timer.start()
 
 
 func _process(delta: float) -> void:
@@ -79,4 +92,7 @@ func cat_removed(cat : Cat) -> void:
 func add_money(money : int):
 	money_level += money
 	ui.update_money(money_level)
-	
+
+func _on_pause_entre_les_clients_timeout() -> void:
+	spawn_cat() # Replace with function body.
+	start_client_timer(3,8)
